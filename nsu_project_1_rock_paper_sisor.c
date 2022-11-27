@@ -4,7 +4,7 @@
 #include<stdbool.h>                     //to get bolian variable
 #include<windows.h>                      //to use cmd commands
 #include<conio.h>
-
+int score;
 
 
 #define ROCK 1
@@ -13,16 +13,24 @@
 void game();                            //full function for the game
 int main()
 {
-    printf("HOW MANY TIME YOU WANT TO PLAY THE GAME\n");
-    int t;
-    scanf("%d",&t);
+
+
+    printf("You Have 3 Chances to play and press any key\n");
+    getch();
+
+   system("cls");
+
+    int t=3;
     while(t--)
     {
         game();
     }
 
-    printf("\n\n\tPress any ey to exit.  ");
+    printf("YOUR SCORE IS :%d\n",score);
+    printf("\n\n\tPress any Key to exit.  ");
+
     getch();
+
     return 0;
 }
 void game()
@@ -77,6 +85,7 @@ void game()
         if (player_throw == ROCK && ai_throw == SCISSORS)
         {
              printf("\nROCK beats SCISSORS. YOU WIN.\n\n");
+             score++;
         }
 
         else if (player_throw == ROCK && ai_throw == PAPER)
@@ -86,6 +95,7 @@ void game()
        else if (player_throw == SCISSORS && ai_throw == PAPER)
         {
               printf("\nSCISSORS beats PAPER. YOU WIN.\n\n");
+                score++;
         }
         else if (player_throw == SCISSORS && ai_throw == ROCK)
         {
@@ -94,6 +104,7 @@ void game()
          else if (player_throw == PAPER && ai_throw == ROCK)
          {
               printf("\nPAPER beats ROCK. YOU WIN.\n\n");
+               score++;
          }
          else if (player_throw == PAPER && ai_throw == SCISSORS)
          {
@@ -106,4 +117,5 @@ void game()
     }
 
     } while (draw);                                  // the game will run as long as it is draw
+
 }
