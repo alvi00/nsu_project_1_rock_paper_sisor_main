@@ -3,11 +3,13 @@
 #include<time.h>                        //for time
 #include<stdbool.h>                     //to get bolian variable
 #include<windows.h>                      //to use cmd commands
+#include<conio.h>
+
 
 #define ROCK 1
 #define PAPER 2
 #define SCISSORS 3
-void game(int t);                            //full function for the game
+void game();                            //full function for the game
 int main()
 {
     printf("HOW MANY TIME YOU WANT TO PLAY THE GAME\n");
@@ -15,19 +17,21 @@ int main()
     scanf("%d",&t);
     while(t--)
     {
-        game(t);
+        game();
     }
 
+    printf("\n\n\tPress any ey to exit.  ");
+    getch();
     return 0;
 }
-void game(int t)
+void game()
 {
 
     srand(time(NULL));                     //seeding to genarate random numbers with time
-    int n;
-    int player_throw =0;                   //to store the player given numbers
-    int ai_throw=0;                        //to store the ai given numbers
-
+    int  n;
+    int  player_throw = 0;
+    char ch_player_throw;                 //to store the player given numbers
+    int  ai_throw=0;                        //to store the ai given numbers
     bool draw=false;                       //it will check the game is draw or not
 
     do
@@ -37,7 +41,22 @@ void game(int t)
         printf("2) PAPER\n");
         printf("3) SCISSORS\n");
         printf("SELECTION: ");
-        scanf("%d",&player_throw);            //to store player numbers
+        while(1)
+        {
+            ch_player_throw = getch();          //to store player numbers
+            player_throw = (int)(ch_player_throw - 48);
+            printf("%c", ch_player_throw);
+
+            if(player_throw != 1 && player_throw != 2 && player_throw != 3)
+            {
+                Beep(450, 250);
+                printf("\b \b");
+                continue;
+            }
+            else break;
+        }
+        getch();
+        
 
         ai_throw = (rand() % 3) + 1;           //random number will give me 0 to infinity numbers so to get 1 2 3, It will mod that intezer and mod with 3 and it will give me 0,1,2 and to get 1,2,4 there is a plus 1
 
