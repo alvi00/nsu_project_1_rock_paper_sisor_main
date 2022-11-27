@@ -46,18 +46,17 @@ void game()
         {
             ch_player_throw = getch();          //to store player numbers
             player_throw = (int)(ch_player_throw - 48);
-            printf("%c", ch_player_throw);
 
             if(player_throw != 1 && player_throw != 2 && player_throw != 3)
             {
                 Beep(450, 250);
-                printf("\b \b");
                 continue;
             }
             else break;
         }
+        printf("%c", ch_player_throw);
         getch();
-        
+
 
         ai_throw = (rand() % 3) + 1;           //random number will give me 0 to infinity numbers so to get 1 2 3, It will mod that intezer and mod with 3 and it will give me 0,1,2 and to get 1,2,4 there is a plus 1
 
@@ -107,6 +106,4 @@ void game()
     }
 
     } while (draw);                                  // the game will run as long as it is draw
-
-
 }
