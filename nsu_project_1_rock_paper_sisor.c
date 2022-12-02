@@ -13,29 +13,48 @@ int score;
 void game();                            //full function for the game
 int main()
 {
-
-
-    printf("You Have 3 Chances to play and press any key\n");
-    getch();
-
-   system("cls");
-
-    int t=3;
-    while(t--)
+    while(1)
     {
-        game();
+        printf("\n\n\t\t\t\t\tPlay At Least 5 times To Get Discount\n\n");
+        printf("\n\n");
+        printf("\t\t                        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+        printf("\t\t                        $                                  $\n");
+        printf("\t\t                        $    Select any of them -          $\n");
+        printf("\t\t                        $                                  $\n");
+        printf("\t\t                        $    1.  PLAY GAME                 $\n");
+        printf("\t\t                        $                                  $\n");
+        printf("\t\t                        $                                  $\n");
+        printf("\t\t                        $    2.  EXIT                      $\n");
+        printf("\t\t                        $                                  $\n");
+        printf("\t\t                        $                                  $\n");
+        printf("\t\t                        $                                  $\n");
+        printf("\t\t                        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+        int a;
+        scanf("%d",&a);
+        system("cls");
+
+        if(a==1)
+        {
+            game();
+        }
+        else if(a==2)
+        {
+            return 0;
+        }
+        else
+        {
+        printf("\n -----------------------You Entered Wrong Number------------------------\n  ------------------------Enter Correct Number------------------------\n");
+        }
     }
 
-    printf("YOUR SCORE IS :%d\n",score);
-    printf("\n\n\tPress any Key to exit.  ");
-
-    getch();
 
     return 0;
 }
 void game()
 {
-
+    int t=3;
+    while(t--)
+    {
     srand(time(NULL));                     //seeding to genarate random numbers with time
     int  n;
     int  player_throw = 0;
@@ -112,10 +131,14 @@ void game()
          }
     else
     {
-      printf("\nDRAW! Play again.\n\n");             // if both player and AI throw the same, it's a draw
+      printf("\nDRAW! Play again.\n\n");            // if both player and AI throw the same, it's a draw
+      printf("YOUR SCORE IS :%d\n\n",score);
       draw = true;
     }
 
     } while (draw);                                  // the game will run as long as it is draw
-
+    printf("YOUR SCORE IS :%d\n\n\n",score);
+    }
+    getch();
+    system("cls");
 }
