@@ -11,6 +11,7 @@ int score;
 #define PAPER 2
 #define SCISSORS 3
 void game();                            //full function for the game
+void load();
 int main()
 {
     while(1)
@@ -35,6 +36,7 @@ int main()
 
         if(a==1)
         {
+            load();
             game();
         }
         else if(a==2)
@@ -140,5 +142,15 @@ void game()
     printf("YOUR SCORE IS :%d\n\n\n",score);
     }
     getch();
+    system("cls");
+}
+
+    void load()
+{
+    int r,q;
+    printf("\n\n\n\t\t\tloading...");
+    for(r=1;r<=20;r++){
+    for(q=0;q<=100000000;q++);   //to display the character slowly
+    printf("%c",177);}
     system("cls");
 }
